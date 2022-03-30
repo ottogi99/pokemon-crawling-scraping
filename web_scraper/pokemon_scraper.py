@@ -24,6 +24,7 @@ if __name__ == '__main__':
     # JSON 파일 로딩
     pokemon_guide = FileHandler.json_to_pokemon(json_path)
 
+    # 이미지 파일 로컬로 저장
     for pokemon in pokemon_guide:
         fileName = os.path.basename(pokemon.thumbnail)
         FileHandler.download_image(pokemon.thumbnail, f'thumbnail/{fileName}')
