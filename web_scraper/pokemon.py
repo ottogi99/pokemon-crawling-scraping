@@ -42,6 +42,12 @@ class PokeMon(object):
     def to_json(self):
         return json.dumps(dict(self), indent=2, ensure_ascii=False)  # dict() 함수를 호출하면 객체내의 __iter__() 가 실행된다.
 
+    def to_values(self):
+        values = [self.number, self.name, self.monType, self.height, self.weight, self.thumbnail, self.fullImage]
+        added_quotation_mark = ["''" if value is None else "'" + value + "'" for value in values]
+        query_value_string = ','.join(added_quotation_mark)
+        return query_value_string
+
     @staticmethod
     def from_json(json_dict):
         return PokeMon(json_dict['number'],
