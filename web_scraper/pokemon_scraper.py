@@ -12,7 +12,7 @@ if __name__ == '__main__':
 
     # 웹 Crawling 그리고 Scraping
     crawler = Crawler()
-    parsed_items = Crawler.crawling(crawling_url, is_infinite_scroll=True)
+    parsed_items = crawler.crawling(crawling_url, is_infinite_scroll=True)
 
     for item in parsed_items:
         pokemon = PokeMon(item['number'], item['name'], item['mon_type'], thumbnail=item['thumbnail'])
@@ -28,6 +28,9 @@ if __name__ == '__main__':
     for pokemon in pokemon_guide:
         fileName = os.path.basename(pokemon.thumbnail)
         FileHandler.download_image(pokemon.thumbnail, f'thumbnail/{fileName}')
+        print(f'Download is completed: {fileName}')
+
+    exit(0)
 
     # JSON TO HEROKU DB로 저장
     db_handler = DBHandler()

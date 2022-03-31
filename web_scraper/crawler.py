@@ -10,7 +10,7 @@ class Crawler:
 
     # Method 'crawling' may be 'static' --> 메소드 내부에서 self(객체의 인스턴스) 접근하는 로직이 없어서
     # Pycharm이 우리가 만든 메소드를 보고 얘가 지금 인스턴스가 필요하지 않은 static 메소드를 만드려고 하는건가?? 싶어서 띄우는 메시지입니다.
-    def crawling(self, url, driver, time_to_wait=10, is_infinite_scroll=False, delay_to_scroll=3):
+    def crawling(self, url, driver=None, time_to_wait=10, is_infinite_scroll=False, delay_to_scroll=3):
         driver = webdriver.Chrome() if driver is None else driver
         driver.maximize_window()
         driver.get(url)

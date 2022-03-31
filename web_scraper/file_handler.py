@@ -28,3 +28,4 @@ class FileHandler:
     @staticmethod
     def download_image(image_url, download_path):
         dload.save(image_url, download_path)
+        dload.save(image_url, download_path)
